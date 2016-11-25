@@ -12,7 +12,7 @@ namespace Assets._Project.Scripts
         void Update ()
         {
             int speed = (int) PlayerCar.CurrentSpeed;
-            SpeedText.text = speed.ToString();
+            SpeedText.text = "Speed: " + speed + "\n" + "km/h";
         }
     }
 }
