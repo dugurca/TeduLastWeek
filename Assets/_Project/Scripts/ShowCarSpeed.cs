@@ -1,15 +1,18 @@
 ﻿using UnityEngine;
-using System.Collections;
+using UnityEngine.UI;
+using UnityStandardAssets.Vehicles.Car;
 
-public class ShowCarSpeed : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+namespace Assets._Project.Scripts
+{
+    public class ShowCarSpeed : MonoBehaviour
+    {
+        public CarController PlayerCar;
+        public Text SpeedText;
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+        void Update ()
+        {
+            int speed = (int) PlayerCar.CurrentSpeed;
+            SpeedText.text = speed.ToString();
+        }
+    }
 }
