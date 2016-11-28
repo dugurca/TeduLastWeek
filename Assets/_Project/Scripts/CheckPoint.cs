@@ -22,9 +22,26 @@ namespace Assets._Project.Scripts
                     rb.mass = 0.01f;
                     rb.useGravity = false;
                     rb.AddForce(Vector3.up);
-                    Destroy(go, 6f);
+                    StartCoroutine(DestroyBall(go, 5f));
                 }
             }
+        }
+
+        public IEnumerator DestroyBall(GameObject go, float secs)
+        {
+            float startTime = Time.time;
+
+            while (Time.time < startTime + 1)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            go.GetComponent<Renderer>().material.color = Color.green;
+
+            while (Time.time < startTime + secs)
+            {
+                yield return new WaitForEndOfFrame();
+            }
+            Destroy(go);
         }
     }
 }
